@@ -8,6 +8,6 @@ public class OAuthController {
     @RequestMapping(value = "/oauth", method = RequestMethod.GET)
     @ResponseBody
     String handleOAuthRedirect(@RequestParam("code") String authCode) {
-        return "authCode";
+        return authCode;
     }
 }
