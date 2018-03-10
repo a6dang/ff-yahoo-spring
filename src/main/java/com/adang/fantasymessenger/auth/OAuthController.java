@@ -29,7 +29,7 @@ public class OAuthController {
         requestFields.add("client_id", "dj0yJmk9YWxnaVVSTmFTbW90JmQ9WVdrOU5GSlBjRmh1TlRJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw--");
         requestFields.add("client_secret", "d52d279acefcac5e35be7bf9965b82d2a4060cff");
         requestFields.add("code", authCode);
-        requestFields.add("grant_type", "authorization-code");
+        requestFields.add("grant_type", "authorization_code");
         requestFields.add("redirect_uri", "https://gentle-dusk-83365.herokuapp.com/success");
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(requestFields, headers);
