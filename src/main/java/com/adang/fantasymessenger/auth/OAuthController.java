@@ -42,7 +42,7 @@ public class OAuthController {
         requestFields.add("client_secret", CLIENT_SECRET);
         requestFields.add("code", authCode);
         requestFields.add("grant_type", "authorization_code");
-        requestFields.add("redirect_uri", REDIRECT_URI);
+        requestFields.add("redirect_uri", "oob");
 
         HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(requestFields, headers);
 
