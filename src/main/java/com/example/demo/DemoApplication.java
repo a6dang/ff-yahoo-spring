@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class DemoApplication {
 
+    @RequestMapping("/oauth")
+    @ResponseBody
+    String oauth() {
+        return "Hello OAuth!";
+    }
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
