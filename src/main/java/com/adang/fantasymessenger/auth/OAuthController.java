@@ -4,6 +4,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE;
@@ -43,10 +44,14 @@ public class OAuthController {
         requestFields.add("grant_type", "authorization_code");
         requestFields.add("redirect_uri", REDIRECT_URI);
 
-        HttpEntity<?> request = new HttpEntity<>(requestFields, headers);
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(requestFields, headers);
 
-        HttpEntity<String> response = restTemplate.postForEntity(YAHOO_TOKEN_URL, request, String.class);
-        return response.getBody();
+        try {
+            HttpEntity<String> response = restTemplate.postForEntity(YAHOO_TOKEN_URL, request, String.class);
+            return response.getBody();
+        } catch (HttpClientErrorException exception) {
+            return exception.getResponseBodyAsString();
+        }
     }
 
     @RequestMapping(value = "/success", method = RequestMethod.GET)
