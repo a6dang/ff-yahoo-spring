@@ -10,10 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 public class DemoApplication {
 
+    private static final String LINK = "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9YWxnaVVSTmFTbW90JmQ9WVdrOU5GSlBjRmh1TlRJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw--&redirect_uri=https://gentle-dusk-83365.herokuapp.com/oauth&response_type=code&language=en-us";
+//    private static final String LINK = "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9VEI0ZUxBZkhKeTcyJmQ9WVdrOVkyODVZelpSTnpnbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04NQ--&redirect_uri=https://127.0.0.1:8080/oauth&response_type=code&language=en-us";
+
     @RequestMapping("/")
     @ResponseBody
     String home() {
-        return "https://api.login.yahoo.com/oauth2/request_auth?client_id=dj0yJmk9YWxnaVVSTmFTbW90JmQ9WVdrOU5GSlBjRmh1TlRJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw--&redirect_uri=https://gentle-dusk-83365.herokuapp.com/oauth&response_type=code&language=en-us";
+        return LINK;
     }
 
     public static void main(String[] args) {
