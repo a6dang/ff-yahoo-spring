@@ -17,7 +17,7 @@ public class OAuthController {
     private static final String CLIENT_ID = "dj0yJmk9YWxnaVVSTmFTbW90JmQ9WVdrOU5GSlBjRmh1TlRJbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD1lNw--";
     private static final String CLIENT_SECRET = "d52d279acefcac5e35be7bf9965b82d2a4060cff";
     private static final String AUTHORIZATION_HEADER = "Basic ZGoweUptazlZV3huYVZWU1RtRlRiVzkwSm1ROVdWZHJPVTVHU2xCalJtaDFUbFJKYldOSGJ6bE5RUzB0Sm5NOVkyOXVjM1Z0WlhKelpXTnlaWFFtZUQxbE53LS06ZDUyZDI3OWFjZWZjYWM1ZTM1YmU3YmY5OTY1YjgyZDJhNDA2MGNmZg==";
-    private static final String REDIRECT_URI = "https://gentle-dusk-83365.herokuapp.com/success";
+    private static final String REDIRECT_URI = "gentle-dusk-83365.herokuapp.com";
     // local
 //    private static final String CLIENT_ID = "dj0yJmk9VEI0ZUxBZkhKeTcyJmQ9WVdrOVkyODVZelpSTnpnbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmeD04NQ--";
 //    private static final String CLIENT_SECRET = "9ce094a5c54372cfba4024a6237457d150b803f4";
