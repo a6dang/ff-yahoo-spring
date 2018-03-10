@@ -11,6 +11,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Map;
 
+import static org.springframework.http.MediaType.APPLICATION_FORM_URLENCODED_VALUE;
+
 @RestController
 public class OAuthController {
 
@@ -18,8 +20,8 @@ public class OAuthController {
     @RequestMapping(value = "/oauth", method = RequestMethod.GET)
     String handleOAuthRedirect(@RequestParam("code") String authCode) {
         RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
+        headers.add("Content-Type", APPLICATION_FORM_URLENCODED_VALUE);
         headers.add("Authorization", "Basic ZGoweUptazlZV3huYVZWU1RtRlRiVzkwSm1ROVdWZHJPVTVHU2xCalJtaDFUbFJKYldOSGJ6bE5RUzB0Sm5NOVkyOXVjM1Z0WlhKelpXTnlaWFFtZUQxbE53LS06ZDUyZDI3OWFjZWZjYWM1ZTM1YmU3YmY5OTY1YjgyZDJhNDA2MGNmZg==");
 
         // create body
@@ -30,7 +32,7 @@ public class OAuthController {
         requestFields.add("grant_type", "authorization-code");
         requestFields.add("redirect_uri", "https://gentle-dusk-83365.herokuapp.com/success");
 
-        HttpEntity<Map<String, String>> request = new HttpEntity<>(requestFields);
+        HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<>(requestFields, headers);
 
         HttpEntity<String> response = restTemplate.postForEntity(YAHOO_TOKEN_URL, request, String.class);
         return response.getBody();
